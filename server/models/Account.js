@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+
 const saltRounds = 10;
 let AccountModel = {};
 const AccountSchema = new mongoose.Schema({
@@ -26,8 +27,8 @@ AccountSchema.statics.toAPI = (doc) => ({
 AccountSchema.statics.generateHash = (password) => bcrypt.hash(password, saltRounds);
 AccountSchema.statics.authenticate = async (username, password, callback) => {
   try {
-    const doc = await AccountModel.findOne({username}).exec();
-    if(!doc) {
+    const doc = await AccountModel.findOne({ username }).exec();
+    if (!doc) {
       return callback();
     }
     const match = await bcrypt.compare(password, doc.password);
