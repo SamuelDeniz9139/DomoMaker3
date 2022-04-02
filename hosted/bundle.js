@@ -27,7 +27,7 @@
             const o=r.querySelector("#user").value,
             a=r.querySelector("#pass").value,
             d=r.querySelector("#pass2").value,
-            u=r.querySelector("#_csrf").value;
+            u=r.querySelector("#csrf").value;
             return o&&a&&d?a!==d?(e("Passwords do not match!"),!1):(t(r.getAttribute("action"),{
                 username:o,
                 pass:a,
