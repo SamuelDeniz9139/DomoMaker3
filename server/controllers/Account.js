@@ -1,10 +1,10 @@
 const models=require('../models');
 const Account=models.Account;
 const loginPage=(req,res)=>{
-    return res.render('login');
+    return res.render('login',{csrfToken:req.csrfToken()});
 };
 const signupPage=(req,res)=>{
-    return res.render('signup');
+    return res.render('signup',{csrfToken:req.csrfToken()});
 };
 const logout=(req,res)=>{
     req.session.destroy();
